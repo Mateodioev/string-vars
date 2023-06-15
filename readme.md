@@ -33,6 +33,7 @@ var_dump($vars['price']); // 33.03
 
 TODO LIST:
 
-- [ ] Clase matcher
-- [ ] Metodo isValid
-- [ ] Metodo match
+- [x] Clase matcher
+- [x] Clase config
+- [x] Metodo isValid
+- [x] Metodo match
