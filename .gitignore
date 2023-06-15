@@ -1,0 +1,7 @@
+# Dirs
+vendor/
+.idea/
+.vscode/
+
+# Files
+composer.lock
