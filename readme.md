@@ -14,6 +14,17 @@ $vars = $matcher->match('Hello Juan'); // $vars contain an array of parameters
 var_dump($vars['name']); // "Juan"
 ```
 
+## Match with data types
+
+```php
+// "w": all string
+// "d": all numbers
+// "f": all decimals
+// "all": all characters
+// "": all characters except /
+$matcher = new Matcher(format: "Hello {w:name}");
+
+```
 ## Using custom formats
 
 ```php
