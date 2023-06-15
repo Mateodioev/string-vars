@@ -47,19 +47,19 @@ class Matcher
     {
         $this->buildPattern($strict);
 
-        preg_match($this->pattern, $str, $matches);
+        $matches = [];
+        preg_match($this->pattern . 'i', $str, $matches);
         array_shift($matches);
 
-        return \array_combine($this->parameters, $matches);
-
-        /* $parameters = [];
+        // return \array_combine($this->parameters, $matches); // not work with optional parameters
+        $parameters = [];
         foreach ($this->parameters as $i => $parameter) {
             $match = $matches[$i] ?? null;
             $match = $match === '' ? null : $match;
             $parameters[$parameter] = $match;
         }
 
-        return $parameters; */
+        return $parameters;
     }
 
     /**

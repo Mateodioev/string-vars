@@ -30,10 +30,3 @@ var_dump($matcher->isValid('The price is 33')); // false
 $vars = $matcher->match('The price is 33.03');
 var_dump($vars['price']); // 33.03
 ```
-
-TODO LIST:
-
-- [x] Clase matcher
-- [x] Clase config
-- [x] Metodo isValid
-- [x] Metodo match
