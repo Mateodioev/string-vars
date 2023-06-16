@@ -31,6 +31,14 @@ class Config
         return $this;
     }
 
+    /**
+     * Get format key
+     */
+    public function format(string $key): ?string
+    {
+        return $this->formats[$key] ?? null;
+    }
+
     public function getFormat(string $format)
     {
         return preg_replace(

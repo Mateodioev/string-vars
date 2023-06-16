@@ -63,6 +63,14 @@ class Matcher
     }
 
     /**
+     * Get parameters
+     */
+    public function parameters(): array
+    {
+        return $this->parameters;
+    }
+
+    /**
      * Build pattern from format
      */
     private function buildPattern(bool $strict = false): string
