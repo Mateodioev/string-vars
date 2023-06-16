@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateodioev\StringMatcher;
+namespace Mateodioev\StringVars;
 
 class StringMatcherException extends \Exception
 {

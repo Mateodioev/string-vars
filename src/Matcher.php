@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateodioev\StringMatcher;
+namespace Mateodioev\StringVars;
 
 use function preg_match_all, array_map, count, preg_match, array_shift;
 

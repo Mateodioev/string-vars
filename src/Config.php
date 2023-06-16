@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateodioev\StringMatcher;
+namespace Mateodioev\StringVars;
 
 use function in_array, array_keys, array_map, array_values, preg_replace;
 

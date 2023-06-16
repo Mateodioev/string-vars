@@ -1,11 +1,11 @@
 {
-    "name": "mateodioev/string-matcher",
+    "name": "mateodioev/string-vars",
     "description": "Get vars from string",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mateodioev\\StringMatcher\\": "src/"
+            "Mateodioev\\StringVars\\": "src/"
         }
     },
     "minimum-stability": "dev",
