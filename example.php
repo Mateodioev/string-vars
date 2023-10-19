@@ -1,6 +1,6 @@
 <?php
 
-use Mateodioev\StringMatcher\{Config, Matcher};
+use Mateodioev\StringVars\{Config, Matcher};
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -9,9 +9,9 @@ $conf = new Config;
 $conf->addFormat('mail', "([a-z0-9!\#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!\#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9]))");
 # $conf->addFormat('c', '([\d.]+)');
 
-$matcher = new Matcher('/{name}?/{aaaa}/{mail:umail}?/', $conf);
+$matcher = new Matcher('/{name}?/{id}/{mail:email}?/', $conf);
 
-$text = '/nombre/asds/customemail@mail.com/';
+$text = '/mateodioev/12323/customemail@mail.com/';
 
 var_dump($matcher->isValid($text, true));
 $vars = $matcher->match($text, true);
