@@ -25,9 +25,17 @@ class Matcher
     ) {
         $config ??= new Config();
 
-        $this->regexFormat = $config->getFormat($this->format);
+        $this->regexFormat = $config->build($this->format);
 
         $this->setParameters();
+    }
+
+    /**
+     * Create a new instance
+     */
+    public static function new(string $format): static
+    {
+        return new static($format);
     }
 
     /**
@@ -43,6 +51,10 @@ class Matcher
         return preg_match($this->pattern, $string) === 1;
     }
 
+    /**
+     * Match the string with format
+     * @param bool $strict If true, the string must begin and end with the format
+     */
     public function match(string $str, bool $strict = false): array
     {
         $this->buildPattern($strict);

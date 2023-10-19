@@ -6,21 +6,25 @@ use function in_array, array_keys, array_map, array_values, preg_replace;
 
 class Config
 {
+    /**
+     * @param array<string, string> $formats
+     */
     public function __construct(
         protected array $formats = []
     ) {
         $this->formats = [
-            ...[
-                'w'   => '([a-zA-Z\d]+)',         // All strings
-                'd'   => '([\d]+)',               // All digits
-                'f'   => '([\d]+(?:\.[\d]+)?)',   // All floats
-                'all' => '([\s\S]+)',             // All strings and digits
-                ''    => '([^/]+)'                // All strings except /
-            ],
-            ...$this->formats
+            ...$this->formats,
+            'w'   => '([a-zA-Z\d]+)',         // All strings
+            'd'   => '([\d]+)',               // All digits
+            'f'   => '([\d]+(?:\.[\d]+)?)',   // All floats
+            'all' => '([\s\S]+)',             // All strings and digits
+            ''    => '([^/]+)'                // All strings except /
         ];
     }
 
+    /**
+     * Add a new format to the config
+     */
     public function addFormat(string $key, string $regexFormat): static
     {
         if (in_array($key, array_keys($this->formats))) {
@@ -31,6 +35,9 @@ class Config
         return $this;
     }
 
+    /**
+     * Get the regex format of a given format
+     */
     public function getFormat(string $format)
     {
         return preg_replace(
@@ -38,6 +45,15 @@ class Config
             $this->replacements(),
             $format
         );
+    }
+
+    /**
+     * Build the regex pattern of a given format
+     * @param string $format Format to build. Example: `{w:name}/{d:age}`
+     */
+    public function build(string $format): string
+    {
+        return $this->getFormat($format);
     }
 
     /**
